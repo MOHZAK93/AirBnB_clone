@@ -6,6 +6,7 @@ import shlex
 from models.base_model import BaseModel
 from models import storage
 
+
 class HBNBCommand(cmd.Cmd):
     """"""
     prompt = '(hbnb) '
@@ -106,9 +107,28 @@ class HBNBCommand(cmd.Cmd):
 
     def do_update(self, line):
         """
-            Update instance based on class name and id
-            Ex: $ update BaseModel 1234-1234-1234 email "abnb@gmail.com"
+        Update instance based on class name and id
+        Ex: $ update BaseModel 1234-1234-1234 email "abnb@gmail.com"
+        Usage: update <class name> <id> <attribute name>
+        "<attribute value>"
         """
+        tokens = shlex.split(line)
+        if not self.name_id_validator(tokens):
+            return
+        obj1 = storage.all().get("{}.{}".format(tokens[0], tokens[1]))
+        if not obj1:
+            print("** no instance found **")
+        elif len(tokens) < 3:
+            print("** attribute name missing **")
+        elif len(tokens) < 4:
+            print("** value missing **")
+        else:
+            if hasattr(obj1, tokens[2]):
+                cls = type(getattr(obj1, tokens[2]))
+                setattr(obj1, tokens[2], cls(tokens[3]))
+            else:
+                setattr(obj1, tokens[2], tokens[3])
+            obj1.save()
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
