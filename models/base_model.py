@@ -11,6 +11,7 @@ class BaseModel:
 
     def __init__(self, *args, **kwargs):
         """Initializes the parent model"""
+
         if kwargs:
             keydic = dict(kwargs.items())
             del keydic["__class__"]
@@ -27,6 +28,7 @@ class BaseModel:
         """Updates public instance attribute
             updated_at with current datetime
         """
+
         self.updated_at = datetime.now()
         storage.save()
 
