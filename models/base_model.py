@@ -33,7 +33,7 @@ class BaseModel:
         storage.save()
 
     def to_dict(self):
-        "Returns a dictionary containing all keys/values of instance"
+        """Returns a dictionary containing all keys/values of instance"""
 
         dret = dict(self.__dict__.items())
         dret["__class__"] = self.__class__.__name__
@@ -42,5 +42,8 @@ class BaseModel:
         return dret
 
     def __str__(self):
+        """Returns a user friendly string representation
+        of the object
+        """
         return "[{}] ({}) {}".format(
                 self.__class__.__name__, self.id, self.__dict__)

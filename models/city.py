@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""State Model"""
+"""City Model"""
 
 import uuid
 from datetime import datetime, date
@@ -9,5 +9,6 @@ from models import storage
 
 class City(BaseModel):
     """Derived from BaseModel"""
+
     state_id = ""
     name = ""
