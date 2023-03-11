@@ -1,16 +1,22 @@
 #!/usr/bin/python3
+"""Command Interpreter"""
 
 import cmd
-import sys
 import shlex
 
 from models.base_model import BaseModel
 from models.user import User
+from models.amenity import Amenity
+from models.city import City
+from models.place import Place
+from models.state import State
+from models.review import Review
 from models import storage
 
 
 class HBNBCommand(cmd.Cmd):
-    """"""
+    """Defines hbnb command interpreter"""
+
     prompt = '(hbnb) '
 
     classes = {
@@ -26,6 +32,7 @@ class HBNBCommand(cmd.Cmd):
 
     def emptyline(self):
         """Do nothing when an empty line is entered"""
+
         return
 
     def do_create(self, line):
@@ -34,6 +41,7 @@ class HBNBCommand(cmd.Cmd):
         saves it and print the id
         Example: $ create BaseModel
         """
+
         tokens = shlex.split(line)
         if not self.name_validator(tokens):
             return
@@ -43,6 +51,7 @@ class HBNBCommand(cmd.Cmd):
 
     def name_validator(self, tokens):
         """Validates class name argument"""
+
         if not tokens:
             print("** class name missing **")
             return False
@@ -67,6 +76,7 @@ class HBNBCommand(cmd.Cmd):
 
     def name_id_validator(self, tokens):
         """Validates class name and ID arguments"""
+
         if not self.name_validator(tokens):
             return False
         if len(tokens) < 2:
@@ -76,6 +86,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_destroy(self, line):
         """Delestes instance based on class name and id"""
+
         tokens = shlex.split(line)
         if not self.name_id_validator(tokens):
             return
@@ -91,6 +102,7 @@ class HBNBCommand(cmd.Cmd):
             Prints all string representation of all instances
             based or not on the class name
         """
+
         tokens = shlex.split(line)
         if tokens and tokens[0] not in self.classes.keys():
             print("*** class doesn't exist ***")
@@ -106,6 +118,7 @@ class HBNBCommand(cmd.Cmd):
         Usage: update <class name> <id> <attribute name>
         "<attribute value>"
         """
+
         tokens = shlex.split(line)
         if not self.name_id_validator(tokens):
             return
