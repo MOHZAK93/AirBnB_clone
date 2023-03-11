@@ -7,7 +7,7 @@ from models.base_model import BaseModel
 from models import storage
 
 
-class State(BaseModel):
+class Place(BaseModel):
     """Derived from BaseModel"""
     city_id = ""
     user_id = ""

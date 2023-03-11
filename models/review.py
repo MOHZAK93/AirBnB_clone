@@ -7,7 +7,7 @@ from models.base_model import BaseModel
 from models import storage
 
 
-class State(BaseModel):
+class Review(BaseModel):
     """Derived from BaseModel"""
     place_id = ""
     user_id = ""
