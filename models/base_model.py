@@ -1,10 +1,9 @@
 #!/usr/bin/python3
 """Base Model"""
 
-
 import uuid
 from datetime import datetime, date
-from models import storage 
+from models import storage
 
 
 class BaseModel:
@@ -13,17 +12,17 @@ class BaseModel:
     def __init__(self, *args, **kwargs):
         """Initializes the parent model"""
         if kwargs:
-            keydict = dict(kwargs.items())
-            del keydict["__class__"]
-            keydict["created_at"] = datetime.fromisoformat(keydict["created_at"])
-            keydict["updated_at"] = datetime.fromisoformat(keydict["updated_at"])
-            self.__dict__ = keydict
+            keydic = dict(kwargs.items())
+            del keydic["__class__"]
+            keydic["created_at"] = datetime.fromisoformat(keydic["created_at"])
+            keydic["updated_at"] = datetime.fromisoformat(keydic["updated_at"])
+            self.__dict__ = keydic
         else:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
             storage.new(self)
-            
+
     def save(self):
         """Updates public instance attribute
             updated_at with current datetime
@@ -43,25 +42,3 @@ class BaseModel:
     def __str__(self):
         return "[{}] ({}) {}".format(
                 self.__class__.__name__, self.id, self.__dict__)
-
-
-first = BaseModel()
-first.name = "My Mirst Model"
-first.my_number = 89
-print(first.id)
-print(first)
-print(type(first.created_at))
-print("----------------------------------------")
-first_json = first.to_dict()
-print(first_json)
-print("JSON of my_model:")
-for key in first_json.keys():
-    print("\t{}: ({}) - {}".format(key, type(first_json[key]), first_json[key]))
-
-print("----------------------------------------")
-second = BaseModel(**first_json)
-print(second.id)
-print(second)
-print(type(second.created_at))
-print("--------------------------------------")
-print(first is second)
