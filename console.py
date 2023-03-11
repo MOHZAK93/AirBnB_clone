@@ -1,9 +1,11 @@
 #!/usr/bin/python3
 
-import cmd, sys
+import cmd
+import sys
 import shlex
 
 from models.base_model import BaseModel
+from models.user import User
 from models import storage
 
 
@@ -11,19 +13,11 @@ class HBNBCommand(cmd.Cmd):
     """"""
     prompt = '(hbnb) '
 
-    """classes = {
-            "Amenity": Amenity,
-            "BaseModel": BaseModel,
-            "City": City,
-            "Place": Place,
-            "Review": Review,
-            "State": State,
-            "User": User,
-            }
-    """
     classes = {
             "BaseModel": BaseModel,
+            "User": User,
             }
+
     def do_quit(self, line):
         'Quit command to exit the program\n'
         return True
@@ -129,6 +123,7 @@ class HBNBCommand(cmd.Cmd):
             else:
                 setattr(obj1, tokens[2], tokens[3])
             obj1.save()
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

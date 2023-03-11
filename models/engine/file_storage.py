@@ -3,6 +3,7 @@
 
 import json
 import os
+from shlex import split
 
 
 class FileStorage:
@@ -33,19 +34,19 @@ class FileStorage:
 
     def reload(self):
         """
-            Deserializes the JSON file to __objects
-            (only if the JSON file (__file_path)) exists;otherwise,do nothing.
+        Deserializes the JSON file to __objects
+        (only if the JSON file (__file_path)) exists;otherwise,do nothing.
         """
+
         from models.base_model import BaseModel
-        """from models.amenity import Amenity
-        from models.base_model import BaseModel
+        from models.user import User
+        from models.amenity import Amenity
         from models.city import City
         from models.place import Place
         from models.review import Review
         from models.state import State
-        from models.user import User
 
-        classes = {
+        all_classes = {
                 "Amenity": Amenity,
                 "BaseModel": BaseModel,
                 "City": City,
@@ -54,10 +55,11 @@ class FileStorage:
                 "State": State,
                 "User": User,
         }
-        """
+
         if not os.path.exists(FileStorage.__file_path):
             return
         with open(FileStorage.__file_path, "r") as file_obj:
             obj_dic = json.load(file_obj)
             for key, value in obj_dic.items():
-                FileStorage.__objects[key] = BaseModel(**obj_dic[key])
+                cls = all_classes[key.split(".")[0]]
+                FileStorage.__objects[key] = cls(**obj_dic[key])
