@@ -28,7 +28,7 @@ class HBNBCommand(cmd.Cmd):
             "State": State,
             "User": User,
     }
-
+ 
     def do_quit(self, line):
         'Quit command to exit the program\n'
         return True
@@ -141,6 +141,17 @@ class HBNBCommand(cmd.Cmd):
             else:
                 setattr(obj1, tokens[2], tokens[3])
             obj1.save()
+
+    def precmd(self, line):
+        tokens = line.split(".")
+        if len(tokens) == 2 and tokens[0] in self.classes.keys(): 
+            obj_list = []
+            for key, value in storage.all().items():
+                if key.split(".")[0] == tokens[0]:
+                    obj_list.append(str(value))
+            print(obj_list)
+            return ""
+        return line
 
 
 if __name__ == '__main__':
