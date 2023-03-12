@@ -9,10 +9,8 @@ from models import storage
 
 class User(BaseModel):
     """Derived from BaseModel"""
+
     email = ""
-
     password = ""
-
     first_name = ""
-
     last_name = ""
