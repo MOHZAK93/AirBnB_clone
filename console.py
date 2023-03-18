@@ -144,12 +144,19 @@ class HBNBCommand(cmd.Cmd):
 
     def precmd(self, line):
         tokens = line.split(".")
-        if len(tokens) == 2 and tokens[0] in self.classes.keys(): 
+        if tokens[0] in self.classes.keys() and tokens[1] == "all()": 
             obj_list = []
             for key, value in storage.all().items():
                 if key.split(".")[0] == tokens[0]:
                     obj_list.append(str(value))
             print(obj_list)
+            return ""
+        if tokens[0] in self.classes.keys() and tokens[1] == "count()":
+            count = 0
+            for key in storage.all().keys():
+                if key.split(".")[0] == tokens[0]:
+                    count += 1
+            print(count)
             return ""
         return line
 
