@@ -142,6 +142,24 @@ class HBNBCommand(cmd.Cmd):
                 setattr(obj1, tokens[2], tokens[3])
             obj1.save()
 
+    def precmd(self, line):
+        tokens = line.split(".")
+        if tokens[0] in self.classes.keys() and tokens[1] == "all()": 
+            obj_list = []
+            for key, value in storage.all().items():
+                if key.split(".")[0] == tokens[0]:
+                    obj_list.append(str(value))
+            print(obj_list)
+            return ""
+        if tokens[0] in self.classes.keys() and tokens[1] == "count()":
+            count = 0
+            for key in storage.all().keys():
+                if key.split(".")[0] == tokens[0]:
+                    count += 1
+            print(count)
+            return ""
+        return line
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
