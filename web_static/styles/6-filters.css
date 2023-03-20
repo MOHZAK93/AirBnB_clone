@@ -44,7 +44,7 @@ div.container section.filters h3 {
 	position: absolute;
 	font-weight: 600;
 	top: 0px;
-	left 50px;
+	left: 50px;
 }
 div.container section.filters h4 {
 	position: absolute;
@@ -56,8 +56,20 @@ div.container section.filters h4 {
 
 div.container ul.popover {
 	display: none;
+	position: absolute;
+	padding: 20px;
+	margin-top: 70x;
 	background-color: #FAFAFA;
-	width: inherit;
+	width: 83%;
 	border: #DDDDDD 1px solid;
 	border-radius: 4px;
+}
+
+.locations:hover .popover, .amenities:hover .popover {
+	display: block;
+	padding: 4px 1px;
+}
+
+ul.popover h2 {
+	font-size: 16px;
 }
