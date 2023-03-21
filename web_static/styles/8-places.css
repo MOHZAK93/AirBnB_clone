@@ -25,40 +25,61 @@ article h2 {
 }
 
 article div.price_by_night {
+	position: absolute;
+	margin: 20px;
 	color: #FF5A5F;
 	border: 4px solid #FF5A5F;
-	min-width: 60px;
+	width: 60px;
 	height: 60px;
 	font-size: 30px;
 	top: 0;
 	right: 0;
 }
 
+article div.price_by_night p {
+	margin-top: 15px;
+	font-size: 25px;
+}
+
 article div.information {
+	margin-top: 50px;
 	height: 80px;
-	border: 1px 0 solid #DDDDDD;
-	display: inline;
+	border: 1px solid #DDDDDD;
 }
 
 div.max_guest {
+	position: relative;
+	display: inline-block;
 	width: 100px;
+	left: 15px;
 	background-image: url("https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/268/icon_group.png") no-repeat;
 }
 
 div.number_rooms {
+	position: relative;
+	display: inline-block;
 	width: 100px;
+	left: 15px;
 	background-image: url("https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/268/icon_bed.png") no-repeat;
 }
 
 div.number_bathrooms {
+	position: relative;
+	display: inline-block;
 	width: 100px;
+	left: 15px;
 	background-image: url("https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/268/icon_bath.png") no-repeat;
 }
 
+div.information p {
+	margin-top: 50px;
+	margin-left: -50px;
+}
 
 div.user {
-	font-weight: bold;
+	float: left;
 }
 div.description {
+	float: left;
 	font-size: 14px;
 }
