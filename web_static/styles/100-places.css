@@ -20,7 +20,6 @@ section.places article {
 
 article h2 {
 	margin: auto;
-	margin: auto;
 	font-size: 30px;
 }
 
@@ -33,8 +32,8 @@ article div.price_by_night {
 	width: 60px;
 	height: 60px;
 	font-size: 30px;
-	top: 0;
 	right: 0;
+	top: 0;
 }
 
 article div.price_by_night p {
@@ -77,44 +76,99 @@ div.information p {
 	margin-left: -50px;
 }
 
-div.user {
-	float: left;
+article div.user {
+	position: relative;
+	text-align: left;
 }
-div.description {
-	float: left;
+article div.description p {
+	position: relative;
+	text-align: left;
 	font-size: 14px;
 }
 
 article div.amenities {
+    position: relative;
 	margin-top: 40px;
 }
 
 article div.amenities h2 {
+	position: relative;
+	text-align: left;
 	font-size: 16px;
-	border: 1px solid #DDDDDD;
+	border-bottom: 1px solid #DDDDDD;
+	padding: 10px;
 }
 
-article div.amenities li {
-	list-style-type: none;
+section.places article div.amenities ul {
+	position: relative;
+	list-style: none;
+	padding: 0;
+}
+section.places article div.amenities ul li {
+	position: relative;
+	top: 3px;
+	padding-bottom: 10px;
+	padding-left: 30px;
+	text-align: left;
 }
 
+article div.amenities ul div.icon_tv {
+	position: absolute;
+	top: 26px;
+	left: 0px;
+	height: 50px;
+	width: 50px;
+	background: url(../images/icon_tv.png) no-repeat;
+	background-size: 40%;
+}
+
+article div.amenities ul div.icon_pets {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 50px;
+	width: 50px;
+	background: url(../images/icon_pets.png) no-repeat;
+	background-size: 40%;
+}
+
+article div.amenities ul div.icon_wifi {
+	position: absolute;
+	top: 52px;
+	left: 0px;
+	height: 50px;
+	width: 50px;
+	background: url(../images/icon_wifi.png) no-repeat;
+	background-size: 40%;
+}
 article div.reviews {
+	position: relative;
 	margin-top: 40px;
+	text-align: left;
 }
 
 article div.reviews h2 {
+	position: relative;
 	font-size: 16px;
-	border: 1px solid #DDDDDD;
+	border-bottom: 1px solid #DDDDDD;
 }
 
-article div.reviews li {
+article div.reviews ul {
 	list-style-type: none;
 }
 
-article div.reviews li h3 {
+section.places article div.reviews ul li h3 {
+	position: relative;
 	font-size: 14px;
+	text-align: left;
+	margin: 0;
+	padding: 0;
 }
-
-article div.reviews li p {
+section.places article div.reviews ul li p {
+	position: relative;
 	font-size: 12px;
+	text-align: left;
+	margin: 0;
+	padding: 0;
+	padding-bottom: 10px
 }
