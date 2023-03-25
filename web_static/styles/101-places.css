@@ -1,5 +1,8 @@
 section.places {
+	position: relative;
 	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 	text-align: center;
 }
 
@@ -8,10 +11,12 @@ section.places h1 {
 	margin-left: 20px;
 	margin-top: 30px;
 	font-size: 30px;
+	width: 100%;
 }
 section.places article {
 	position: relative;
-	display: inline-block;
+	display: flex;
+	flex-direction: column;
 	width: 390px;
 	padding: 20px;
 	margin: 20px;
@@ -43,6 +48,10 @@ article div.price_by_night p {
 }
 
 article div.information {
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 	margin-top: 50px;
 	height: 80px;
 	border: 1px solid #DDDDDD;
