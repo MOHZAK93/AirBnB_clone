@@ -1,0 +1,26 @@
+@import url("102-header.css");
+@import url("102-footer.css");
+
+*{
+	box-sizing: border-box;
+}
+body {
+	margin: 0;
+	padding: 0;
+	color: #484848;
+	font-size: 14px;
+	font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.container {
+	margin: 0 auto;
+	position: relative;
+	max-width: 1000px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+@media(max-width: 768px) {
+	div.container {
+		width: 100%;
+	}
+}
